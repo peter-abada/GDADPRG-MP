@@ -108,14 +108,15 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);SFML_STATIC</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SFML_STATIC;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\SFML-2.5.1-windows-vc15-64-bit\SFML-2.5.1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\rapidjson-1.1.0\include;C:\Users\pwubl\OneDrive\Desktop\SFML-2.5.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\SFML-2.5.1-windows-vc15-64-bit\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\pwubl\OneDrive\Desktop\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>freetype.lib;winmm.lib;opengl32.lib;sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-system-s-d.lib;sfml-audio-s-d.lib;OpenAL32.lib;FLAC.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -139,7 +140,93 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AComponent.cpp" />
+    <ClCompile Include="AGameObject.cpp" />
+    <ClCompile Include="AirplanePlayer.cpp" />
+    <ClCompile Include="APoolable.cpp" />
+    <ClCompile Include="ApplicationManager.cpp" />
+    <ClCompile Include="AScene.cpp" />
+    <ClCompile Include="BGMovement.cpp" />
+    <ClCompile Include="BGObject.cpp" />
+    <ClCompile Include="Collider.cpp" />
+    <ClCompile Include="Counter.cpp" />
+    <ClCompile Include="EmptyGameObject.cpp" />
+    <ClCompile Include="EnemyAirplane.cpp" />
+    <ClCompile Include="EnemyBehavior.cpp" />
+    <ClCompile Include="EnemySwarmHandler.cpp" />
+    <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="FontManager.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameObjectManager.cpp" />
+    <ClCompile Include="GameObjectPool.cpp" />
+    <ClCompile Include="GameScene.cpp" />
+    <ClCompile Include="GenericInputController.cpp" />
+    <ClCompile Include="Ground.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MainMenuScene.cpp" />
+    <ClCompile Include="MainMenuScreen.cpp" />
+    <ClCompile Include="ObjectPoolHolder.cpp" />
+    <ClCompile Include="PauseMenuScreen.cpp" />
+    <ClCompile Include="PauseScreen.cpp" />
+    <ClCompile Include="PhysicsManager.cpp" />
+    <ClCompile Include="Platform.cpp" />
+    <ClCompile Include="PlayerInputController.cpp" />
+    <ClCompile Include="PlayerMovement.cpp" />
+    <ClCompile Include="ProjectileMovement.cpp" />
+    <ClCompile Include="ProjectileObject.cpp" />
+    <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="SFXManager.cpp" />
+    <ClCompile Include="Text.cpp" />
+    <ClCompile Include="TextureManager.cpp" />
+    <ClCompile Include="UIButton.cpp" />
+    <ClCompile Include="UIButtonInputController.cpp" />
+    <ClCompile Include="UIText.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AComponent.h" />
+    <ClInclude Include="AGameObject.h" />
+    <ClInclude Include="AirplanePlayer.h" />
+    <ClInclude Include="APoolable.h" />
+    <ClInclude Include="ApplicationManager.h" />
+    <ClInclude Include="AScene.h" />
+    <ClInclude Include="BGMovement.h" />
+    <ClInclude Include="BGObject.h" />
+    <ClInclude Include="ButtonListener.h" />
+    <ClInclude Include="Collider.h" />
+    <ClInclude Include="CollisionListener.h" />
+    <ClInclude Include="Counter.h" />
+    <ClInclude Include="EmptyGameObject.h" />
+    <ClInclude Include="EnemyAirplane.h" />
+    <ClInclude Include="EnemyBehavior.h" />
+    <ClInclude Include="EnemySwarmHandler.h" />
+    <ClInclude Include="Entity.h" />
+    <ClInclude Include="FontManager.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="GameObjectManager.h" />
+    <ClInclude Include="GameObjectPool.h" />
+    <ClInclude Include="GameScene.h" />
+    <ClInclude Include="GenericInputController.h" />
+    <ClInclude Include="Ground.h" />
+    <ClInclude Include="MainMenuScene.h" />
+    <ClInclude Include="MainMenuScreen.h" />
+    <ClInclude Include="ObjectPoolHolder.h" />
+    <ClInclude Include="PauseMenuScreen.h" />
+    <ClInclude Include="PauseScreen.h" />
+    <ClInclude Include="PhysicsManager.h" />
+    <ClInclude Include="Platform.h" />
+    <ClInclude Include="PlayerInputController.h" />
+    <ClInclude Include="PlayerMovement.h" />
+    <ClInclude Include="ProjectileMovement.h" />
+    <ClInclude Include="ProjectileObject.h" />
+    <ClInclude Include="Renderer.h" />
+    <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="SFXManager.h" />
+    <ClInclude Include="Text.h" />
+    <ClInclude Include="TextureManager.h" />
+    <ClInclude Include="UIButton.h" />
+    <ClInclude Include="UIButtonInputController.h" />
+    <ClInclude Include="UIText.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
