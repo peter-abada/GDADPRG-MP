@@ -10,6 +10,7 @@ public:
     static std::string MAIN_MENU_SCENE_NAME;
     static std::string GAME_SCENE_NAME;
     static std::string LEVEL1_SCENE2_NAME;
+    static std::string LEVEL1_SCENE3_NAME;
 
     static SceneManager* getInstance();
     void registerScene(AScene* scene);

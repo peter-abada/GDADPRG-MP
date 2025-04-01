@@ -18,6 +18,7 @@ void SFXManager::loadAll() {
         loadSound("Explosion" + str_i, "Media/SFX/Explosion" + str_i + ".wav");
     }
     loadSound("LaunchMissile", "Media/SFX/LaunchMissile.wav");
+    loadSound("Jump", "Media/SFX/Jump.wav");
 }
 
 void SFXManager::loadSound(std::string key, std::string path) {

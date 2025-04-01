@@ -2,22 +2,24 @@
 #include "MainMenuScene.h"
 #include "GameScene.h"
 #include "Level1Scene2.h"
+#include "Level1Scene3.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <iostream>
 #include <vector>
-
+#include "MusicManager.h"
 Game::Game() : mWindow(sf::VideoMode(Game::WINDOW_WIDTH, Game::WINDOW_HEIGHT), "Marco Valdez") {
     mWindow.setFramerateLimit(240);
     ApplicationManager::getInstance()->initialize(&mWindow);
     SFXManager::getInstance()->loadAll();
-
+	MusicManager::getInstance()->loadAll();
     TextureManager::getInstance()->loadAll();
     FontManager::getInstance()->loadAll();
 
     SceneManager::getInstance()->registerScene(new MainMenuScene());
     SceneManager::getInstance()->registerScene(new GameScene()); // level 1 screen 1
     SceneManager::getInstance()->registerScene(new Level1Scene2()); // level 1 screen 2
+    SceneManager::getInstance()->registerScene(new Level1Scene3()); // level 1 screen 3
     SceneManager::getInstance()->loadScene(SceneManager::MAIN_MENU_SCENE_NAME);
 
 }

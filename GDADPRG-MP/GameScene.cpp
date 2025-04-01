@@ -9,7 +9,7 @@
 #include "Counter.h"
 #include "NextScreen.h"
 #include <iostream>
-
+#include "MusicManager.h"
 GameScene::GameScene() : AScene("GameScene") {
 }
 
@@ -20,7 +20,12 @@ void GameScene::onLoadResources() {
 void GameScene::onLoadObjects() {
 
     std::cout << "Loading game objects..." << std::endl;
-
+    //sf::Music* backgroundMusic = MusicManager::getInstance()->getMusic("BackgroundMusic");
+    //if (backgroundMusic) {
+    //    backgroundMusic->setLoop(true); // Enable looping
+    //    backgroundMusic->play();
+    //}
+    MusicManager::getInstance()->playSong("Level1Music");
     EmptyGameObject* physicsManager = new EmptyGameObject("PhysicsManager");
     PhysicsManager::getInstance()->initialize("PhysicsManager", physicsManager);
     GameObjectManager::getInstance()->addObject(physicsManager);

@@ -48,9 +48,9 @@ void Enemy::onActivate() {
     PhysicsManager::getInstance()->trackObject(this->collider);
 
 
-    if (stage == 2) {
+    if (stage == 3) {
 
-        this->setPosition(Game::WINDOW_WIDTH / 2, Game::WINDOW_HEIGHT / 2 + 25);
+        this->setPosition(Game::WINDOW_WIDTH / 2+300, Game::WINDOW_HEIGHT / 2 + 25);
 
     }
 

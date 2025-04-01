@@ -1,5 +1,7 @@
 #include "PlayerInputController.h"
 #include <iostream>
+#include "SFXManager.h"
+#include <SFML/Audio.hpp>
 PlayerInputController::PlayerInputController(std::string name) : GenericInputController(name) {
 }
 
@@ -19,6 +21,7 @@ void PlayerInputController::perform() {
 	switch (event.key.code) {
 	case sf::Keyboard::Space:
 		this->moveUp = keyFlag;
+		SFXManager::getInstance()->getSound("Jump")->play();
 		break;
 	case sf::Keyboard::A:
 		this->moveLeft = keyFlag;

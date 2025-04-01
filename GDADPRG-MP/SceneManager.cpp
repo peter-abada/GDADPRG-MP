@@ -4,6 +4,7 @@
 std::string SceneManager::MAIN_MENU_SCENE_NAME = "MainMenuScene";
 std::string SceneManager::GAME_SCENE_NAME = "GameScene";
 std::string SceneManager::LEVEL1_SCENE2_NAME = "Level1Scene2";
+std::string SceneManager::LEVEL1_SCENE3_NAME = "Level1Scene3";
 
 SceneManager* SceneManager::sharedInstance = nullptr;
 

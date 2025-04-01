@@ -54,7 +54,7 @@ void Level1Scene2::onLoadObjects() {
 
 	Counter* enemyCounter = new Counter(1);
 
-	GameObjectPool* enemyPool = new GameObjectPool(ObjectPoolHolder::ENEMY_POOL_TAG, new Enemy("Enemy", 1, enemyCounter), 10, nullptr);
+	GameObjectPool* enemyPool = new GameObjectPool(ObjectPoolHolder::ENEMY_POOL_TAG, new Enemy("Enemy", 2, enemyCounter), 10, nullptr);
 	enemyPool->initialize();
 	ObjectPoolHolder::getInstance()->registerObjectPool(enemyPool);
 

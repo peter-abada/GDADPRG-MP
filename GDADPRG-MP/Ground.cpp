@@ -5,7 +5,18 @@
 #include "AirplanePlayer.h"
 #include <iostream>
 
-Ground::Ground(std::string name) : AGameObject(name), CollisionListener() {}
+Ground::Ground(std::string name) : AGameObject(name), CollisionListener() {
+    this->xPos = Game::WINDOW_WIDTH / 2;
+    this->yPos = 500;
+
+}
+
+Ground::Ground(std::string name, int xPos, int yPos) : AGameObject(name), CollisionListener(), xPos(xPos), yPos(yPos) {   
+    std::cout << "  EROPREGUIERHGERUIOEROUIGHERIOUGHERIGUHEROIUGERIOHUGEROIGHU";
+	this->xPos = xPos;
+	this->yPos = yPos;
+
+}
 
 Ground::~Ground() {
     delete this->sprite;
@@ -19,7 +30,7 @@ void Ground::initialize() {
     sf::Vector2u textureSize = sprite->getTexture()->getSize();
     sprite->setOrigin(textureSize.x / 2, textureSize.y / 2);
 
-    this->setPosition(Game::WINDOW_WIDTH / 2, 500);
+    this->setPosition(xPos, yPos);
 
     Renderer* renderer = new Renderer("GroundSprite");
     renderer->assignDrawable(sprite);
@@ -55,6 +66,9 @@ void Ground::onCollisionEnter(AGameObject* gameObject) {
 }
 
 void Ground::onCollisionExit(AGameObject* gameObject) {
-    AirplanePlayer* airplanePlayer = (AirplanePlayer*)GameObjectManager::getInstance()->findObjectByName("PlaneObject");
-    airplanePlayer->setGrounded(false);
+    if (gameObject->getName().find("PlaneObject") != std::string::npos) {
+        AirplanePlayer* airplanePlayer = (AirplanePlayer*)GameObjectManager::getInstance()->findObjectByName("PlaneObject");
+        airplanePlayer->setGrounded(false);
+
+    }
 }

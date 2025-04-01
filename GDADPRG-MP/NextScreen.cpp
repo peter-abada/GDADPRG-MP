@@ -48,6 +48,10 @@ void NextScreen::onCollisionEnter(AGameObject* gameObject) {
 			std::cout << "going to next screen!!";
 			SceneManager::getInstance()->loadScene(SceneManager::LEVEL1_SCENE2_NAME);
 		}
+		else if (screen == 2) {
+			std::cout << "going to next screen!!";
+			SceneManager::getInstance()->loadScene(SceneManager::LEVEL1_SCENE3_NAME);
+		}
 	}
 
 }

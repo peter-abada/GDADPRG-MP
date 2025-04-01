@@ -22,6 +22,7 @@ void MainMenuScreen::initialize() {
     renderer->assignDrawable(sprite);
     this->attachComponent(renderer);
 
+
     float posX = Game::WINDOW_WIDTH / 2;
     float posY = Game::WINDOW_HEIGHT / 2;
 

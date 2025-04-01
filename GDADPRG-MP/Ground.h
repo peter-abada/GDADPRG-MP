@@ -1,12 +1,13 @@
 #pragma once
 #include "AGameObject.h"
 #include "CollisionListener.h"
-
+#include "Game.h"
 
 class Ground : public AGameObject, public CollisionListener
 {
 public:
     Ground(std::string name);
+    Ground(std::string name, int xPos, int yPos);
     ~Ground();
     void initialize();
 
@@ -18,6 +19,7 @@ public:
 
 private:
     sf::Sprite* sprite = new sf::Sprite();
-
+    int xPos;
+    int yPos;
     Collider* collider = nullptr;
 };
