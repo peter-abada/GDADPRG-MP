@@ -46,7 +46,7 @@ void Goal::onCollisionEnter(AGameObject* gameObject) {
 	if (gameObject->getName().find("PlaneObject") != std::string::npos) {
 
 		if (stage == 1) {
-			std::cout << "going to next screen!!";
+			std::cout << "going to next level!!";
 			//SceneManager::getInstance()->loadScene(SceneManager::LEVEL2_SCENE1_NAME);
 		}
 
