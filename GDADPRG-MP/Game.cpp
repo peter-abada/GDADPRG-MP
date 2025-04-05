@@ -3,6 +3,13 @@
 #include "GameScene.h"
 #include "Level1Scene2.h"
 #include "Level1Scene3.h"
+#include "Level2Scene1.h"
+#include "Level2Scene2.h"
+#include "Level2Scene3.h"
+#include "Level3Scene1.h"
+#include "Level3Scene2.h"
+//#include "Level3Scene3.h"
+//#include "CreditsScene.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <iostream>
@@ -20,6 +27,22 @@ Game::Game() : mWindow(sf::VideoMode(Game::WINDOW_WIDTH, Game::WINDOW_HEIGHT), "
     SceneManager::getInstance()->registerScene(new GameScene()); // level 1 screen 1
     SceneManager::getInstance()->registerScene(new Level1Scene2()); // level 1 screen 2
     SceneManager::getInstance()->registerScene(new Level1Scene3()); // level 1 screen 3
+
+
+
+    SceneManager::getInstance()->registerScene(new Level2Scene1()); // level 1 screen 3
+	SceneManager::getInstance()->registerScene(new Level2Scene2()); // level 1 screen 3
+	SceneManager::getInstance()->registerScene(new Level2Scene3()); // level 1 screen 3
+
+	SceneManager::getInstance()->registerScene(new Level3Scene1()); // level 1 screen 3
+	SceneManager::getInstance()->registerScene(new Level3Scene2()); // level 1 screen 3
+	//SceneManager::getInstance()->registerScene(new Level3Scene3()); // level 1 screen 3
+
+	//SceneManager::getInstance()->registerScene(new CreditsScene()); // level 1 screen 3
+
+
+
+
     SceneManager::getInstance()->loadScene(SceneManager::MAIN_MENU_SCENE_NAME);
 
 }

@@ -17,12 +17,18 @@ void MusicManager::loadAll() {
 
     loadMusic("MenuMusic", "Media/Music/MenuMusic.wav");
     loadMusic("Level1Music", "Media/Music/Level1Music.wav");
+    loadMusic("Level2Music", "Media/Music/Level2Music.wav");
+    loadMusic("Level3Music", "Media/Music/Level3Music.wav");
+    loadMusic("Credits", "Media/Music/Credits.wav");
+    
+
 
 }
 
 void MusicManager::loadMusic(const std::string& key, const std::string& path) {
     sf::Music* music = new sf::Music();
     if (music->openFromFile(path)) {
+        music->setVolume(50); 
         std::cout << "Loaded: " << path << std::endl;
         musicMap[key] = music;
     }

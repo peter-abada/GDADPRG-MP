@@ -19,6 +19,7 @@ void SFXManager::loadAll() {
     }
     loadSound("LaunchMissile", "Media/SFX/LaunchMissile.wav");
     loadSound("Jump", "Media/SFX/Jump.wav");
+    //loadSound("Dead", "Media/SFX/Dead.wav");
 }
 
 void SFXManager::loadSound(std::string key, std::string path) {
@@ -27,6 +28,7 @@ void SFXManager::loadSound(std::string key, std::string path) {
         std::cout << "Loaded: " << path << std::endl;
         sf::Sound* sound = new sf::Sound();
         sound->setBuffer(*buffer);
+        sound->setVolume(30);
         soundMap[key] = sound;
 
     } else {

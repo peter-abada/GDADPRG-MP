@@ -5,6 +5,13 @@ std::string SceneManager::MAIN_MENU_SCENE_NAME = "MainMenuScene";
 std::string SceneManager::GAME_SCENE_NAME = "GameScene";
 std::string SceneManager::LEVEL1_SCENE2_NAME = "Level1Scene2";
 std::string SceneManager::LEVEL1_SCENE3_NAME = "Level1Scene3";
+std::string SceneManager::LEVEL2_SCENE1_NAME = "Level2Scene1";
+std::string SceneManager::LEVEL2_SCENE2_NAME = "Level2Scene2";
+std::string SceneManager::LEVEL2_SCENE3_NAME = "Level2Scene3";
+std::string SceneManager::LEVEL3_SCENE1_NAME = "Level3Scene1";
+std::string SceneManager::LEVEL3_SCENE2_NAME = "Level3Scene2";
+std::string SceneManager::LEVEL3_SCENE3_NAME = "Level3Scene3";
+std::string SceneManager::CREDITS_SCENE_NAME = "Level3Scene3";
 
 SceneManager* SceneManager::sharedInstance = nullptr;
 

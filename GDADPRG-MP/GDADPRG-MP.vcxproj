@@ -166,6 +166,13 @@
     <ClCompile Include="Ground.cpp" />
     <ClCompile Include="Level1Scene2.cpp" />
     <ClCompile Include="Level1Scene3.cpp" />
+    <ClCompile Include="Level2BGObject.cpp" />
+    <ClCompile Include="Level2Scene1.cpp" />
+    <ClCompile Include="Level2Scene2.cpp" />
+    <ClCompile Include="Level2Scene3.cpp" />
+    <ClCompile Include="Level3BGObject.cpp" />
+    <ClCompile Include="Level3Scene1.cpp" />
+    <ClCompile Include="Level3Scene2.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainMenuScene.cpp" />
     <ClCompile Include="MainMenuScreen.cpp" />
@@ -219,6 +226,13 @@
     <ClInclude Include="Ground.h" />
     <ClInclude Include="Level1Scene2.h" />
     <ClInclude Include="Level1Scene3.h" />
+    <ClInclude Include="Level2BGObject.h" />
+    <ClInclude Include="Level2Scene1.h" />
+    <ClInclude Include="Level2Scene2.h" />
+    <ClInclude Include="Level2Scene3.h" />
+    <ClInclude Include="Level3BGObject.h" />
+    <ClInclude Include="Level3Scene1.h" />
+    <ClInclude Include="Level3Scene2.h" />
     <ClInclude Include="MainMenuScene.h" />
     <ClInclude Include="MainMenuScreen.h" />
     <ClInclude Include="MusicManager.h" />

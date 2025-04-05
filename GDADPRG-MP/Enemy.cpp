@@ -19,7 +19,7 @@ void Enemy::initialize() {
     sf::Vector2u textureSize = sprite->getTexture()->getSize();
     sprite->setOrigin(textureSize.x / 2, textureSize.y / 2);
 
-    this->setPosition(Game::WINDOW_WIDTH / 2 + 200, 300);
+    this->setPosition(Game::WINDOW_WIDTH / 2 + 200, Game::WINDOW_HEIGHT / 2 + 25);
     this->getTransformable()->setRotation(180);
 
     Renderer* renderer = new Renderer("EnemySprite");
@@ -54,6 +54,42 @@ void Enemy::onActivate() {
 
     }
 
+    if (stage == 4) {
+        if (enemyCounter->getCounter() == 1) {
+            this->setPosition(Game::WINDOW_WIDTH / 2 + 300, Game::WINDOW_HEIGHT / 2 + 25);
+        }       
+        if (enemyCounter->getCounter() == 2) {
+            this->setPosition(Game::WINDOW_WIDTH / 2 + 200, Game::WINDOW_HEIGHT / 2 + 25);
+        }      
+        if (enemyCounter->getCounter() == 3) {
+            this->setPosition(Game::WINDOW_WIDTH / 2 + 100, Game::WINDOW_HEIGHT / 2 + 25);
+        }
+        enemyCounter->increment();
+    }
+
+    if (stage == 6) {
+        if (enemyCounter->getCounter() == 1) {
+            this->setPosition(Game::WINDOW_WIDTH / 2 + 350, Game::WINDOW_HEIGHT / 2 + 25);
+        }
+        if (enemyCounter->getCounter() == 2) {
+            this->setPosition(Game::WINDOW_WIDTH / 2 + 300, Game::WINDOW_HEIGHT / 2 + 25);
+        }
+        if (enemyCounter->getCounter() == 3) {
+            this->setPosition(Game::WINDOW_WIDTH / 2 + 250, Game::WINDOW_HEIGHT / 2 + 25);
+        }
+		if (enemyCounter->getCounter() == 4) {
+			this->setPosition(Game::WINDOW_WIDTH / 2 + 200, Game::WINDOW_HEIGHT / 2 + 25);
+		}
+		if (enemyCounter->getCounter() == 5) {
+			this->setPosition(Game::WINDOW_WIDTH / 2 + 150, Game::WINDOW_HEIGHT / 2 + 25);
+		}
+		if (enemyCounter->getCounter() == 6) {
+			this->setPosition(Game::WINDOW_WIDTH / 2 + 100, Game::WINDOW_HEIGHT / 2 + 25);
+		}
+
+        enemyCounter->increment();
+    }
+
 }
 
 APoolable* Enemy::clone() {
@@ -65,20 +101,25 @@ void Enemy::onCollisionEnter(AGameObject* gameObject) {
     if (gameObject->getName().find("PlaneObject") != std::string::npos) {
         std::cout << "ENEMY TOUCHED PLAYER";
         AirplanePlayer* airplanePlayer = (AirplanePlayer*)GameObjectManager::getInstance()->findObjectByName("PlaneObject");
-        airplanePlayer->setDead(true);
+        if (airplanePlayer->getGrounded() == true) {
+            airplanePlayer->setDead(true);
+        } else {
+            GameObjectPool* enemyPool = ObjectPoolHolder::getInstance()->getPool(ObjectPoolHolder::ENEMY_POOL_TAG);
+            enemyPool->releasePoolable((APoolable*)this);
+			airplanePlayer->getTransformable()->move(0, -150);
+        }
+
     }
     if (gameObject->getName().find("Ground") != std::string::npos) {
         std::cout << "ENEMY TOUCHED GROUND";
-        Enemy* enemy = (Enemy*)GameObjectManager::getInstance()->findObjectByName("Enemy");
-        enemy->setGrounded(true);
+        this->setGrounded(true);
     }
 }
 
 void Enemy::onCollisionExit(AGameObject* gameObject) {
     if (gameObject->getName().find("Ground") != std::string::npos) {
-        std::cout << "ENEMY TOUCHED GROUND";
-        Enemy* enemy = (Enemy*)GameObjectManager::getInstance()->findObjectByName("Enemy");
-        enemy->setGrounded(false);
+        std::cout << "ENEMY LEFT GROUND" << std::endl;
+        this->setGrounded(false);
     }
 }
 

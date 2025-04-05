@@ -55,6 +55,39 @@ void Platform::onActivate() {
     else if (stage == 2) {
         this->setPosition(Game::WINDOW_WIDTH / 2 - 200, 300);
     }
+    else if (stage == 4) {
+        this->setPosition(Game::WINDOW_WIDTH / 2 - 100, 300);
+    }
+
+    else if (stage == 5) {
+        if (stageCounter->getCounter() == 1) {
+            this->setPosition(Game::WINDOW_WIDTH / 2 + 150, 350);
+        }
+        else if (stageCounter->getCounter() == 2) {
+            this->setPosition(Game::WINDOW_WIDTH / 2 - 50, 350);
+        }
+        else if (stageCounter->getCounter() == 3) {
+            this->setPosition(Game::WINDOW_WIDTH / 2 - 50, 350);
+        }
+        stageCounter->increment();
+
+    }
+
+    else if (stage == 7) {
+        if (stageCounter->getCounter() == 1) {
+            this->setPosition(Game::WINDOW_WIDTH / 2 - 200, 150);
+        }
+        else if (stageCounter->getCounter() == 2) {
+            this->setPosition(Game::WINDOW_WIDTH / 2 - 200, 300);
+        }
+        else if (stageCounter->getCounter() == 3) {
+            this->setPosition(Game::WINDOW_WIDTH / 2, 100);
+        }
+        else if (stageCounter->getCounter() == 4) {
+            this->setPosition(Game::WINDOW_WIDTH / 2 + 200, 500);
+        }
+        stageCounter->increment();
+    }
 
     PhysicsManager::getInstance()->trackObject(this->collider);
 }
@@ -73,8 +106,10 @@ void Platform::onCollisionEnter(AGameObject* gameObject) {
 }
 
 void Platform::onCollisionExit(AGameObject* gameObject) {
-    AirplanePlayer* airplanePlayer = (AirplanePlayer*)GameObjectManager::getInstance()->findObjectByName("PlaneObject");
-    airplanePlayer->setGrounded(false);
+    if (gameObject->getName().find("PlaneObject") != std::string::npos) {
+        AirplanePlayer* airplanePlayer = (AirplanePlayer*)GameObjectManager::getInstance()->findObjectByName("PlaneObject");
+        airplanePlayer->setGrounded(false);
+    }
 }
 
 int Platform::getStage() {

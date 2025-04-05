@@ -28,6 +28,8 @@ void TextureManager::loadAll() {
 	loadTexture("NextScreen", "Media/Textures/NextScreen.png");
 	loadTexture("Enemy", "Media/Textures/Enemy.png");
 	loadTexture("Goal", "Media/Textures/Goal.png");
+	loadTexture("Level2BGObject", "Media/Textures/Level2BGObject.png");
+	loadTexture("Level3BGObject", "Media/Textures/Level3BGObject.png");
 
 	sf::Texture* bgTex;
 	bgTex = getTexture("Desert");

@@ -11,6 +11,14 @@ public:
     static std::string GAME_SCENE_NAME;
     static std::string LEVEL1_SCENE2_NAME;
     static std::string LEVEL1_SCENE3_NAME;
+    static std::string LEVEL2_SCENE1_NAME;
+	static std::string LEVEL2_SCENE2_NAME;
+	static std::string LEVEL2_SCENE3_NAME;
+	static std::string LEVEL3_SCENE1_NAME;
+	static std::string LEVEL3_SCENE2_NAME;
+	static std::string LEVEL3_SCENE3_NAME;
+	static std::string CREDITS_SCENE_NAME;
+
 
     static SceneManager* getInstance();
     void registerScene(AScene* scene);
