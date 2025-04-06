@@ -3,9 +3,9 @@
 #include "PauseScreen.h"
 #include "ProjectileObject.h"
 
-class Level2Scene2 : public AScene {
+class Level3Scene2 : public AScene {
 public:
-    Level2Scene2();
+    Level3Scene2();
     void onLoadResources();
     void onLoadObjects();
     void onUnloadResources();

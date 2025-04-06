@@ -1,6 +1,6 @@
-#include "Level2Scene2.h"
+#include "Level3Scene2.h"
 #include "GameObjectManager.h"
-#include "Level2BGObject.h"
+#include "Level3BGObject.h"
 #include "AirplanePlayer.h"
 #include "EmptyGameObject.h"
 #include "EnemySwarmHandler.h"
@@ -12,14 +12,14 @@
 #include "Game.h"
 #include <iostream>
 
-Level2Scene2::Level2Scene2() : AScene("Level2Scene2") {
+Level3Scene2::Level3Scene2() : AScene("Level3Scene2") {
 }
 
-void Level2Scene2::onLoadResources() {
+void Level3Scene2::onLoadResources() {
     std::cout << "Loading game resources..." << std::endl;
 }
 
-void Level2Scene2::onLoadObjects() {
+void Level3Scene2::onLoadObjects() {
 
     std::cout << "Loading game objects..." << std::endl;
 
@@ -27,17 +27,13 @@ void Level2Scene2::onLoadObjects() {
     PhysicsManager::getInstance()->initialize("PhysicsManager", physicsManager);
     GameObjectManager::getInstance()->addObject(physicsManager);
 
-    Level2BGObject* bgObject = new Level2BGObject("Level2BGObject");
+    Level3BGObject* bgObject = new Level3BGObject("Level3BGObject");
     this->registerObject(bgObject);
 
-    Ground* ground = new Ground("Ground", Game::WINDOW_WIDTH / 2 - 600, 500);
+    Ground* ground = new Ground("Ground", Game::WINDOW_WIDTH - 1000, 500);
     this->registerObject(ground);
 
-    Ground* ground2 = new Ground("Ground2", Game::WINDOW_WIDTH / 2 + 700, 500);
-    this->registerObject(ground2);
-
-
-    NextScreen* nextScreen = new NextScreen("NextScreen", 5);
+    NextScreen* nextScreen = new NextScreen("NextScreen", 8);
     this->registerObject(nextScreen);
 
     //Platform* platform = new Platform("Platform");
@@ -56,20 +52,21 @@ void Level2Scene2::onLoadObjects() {
     projectilePool->initialize();
     ObjectPoolHolder::getInstance()->registerObjectPool(projectilePool);
 
-    //Counter* enemyCounter = new Counter(1);
+    Counter* enemyCounter = new Counter(1);
 
-    //GameObjectPool* enemyPool = new GameObjectPool(ObjectPoolHolder::ENEMY_POOL_TAG, new Enemy("Enemy", 5, enemyCounter), 10, nullptr);
-    //enemyPool->initialize();
-    //ObjectPoolHolder::getInstance()->registerObjectPool(enemyPool);
+    GameObjectPool* enemyPool = new GameObjectPool(ObjectPoolHolder::ENEMY_POOL_TAG, new Enemy("Enemy", 8, enemyCounter), 10, nullptr);
+    enemyPool->initialize();
+    ObjectPoolHolder::getInstance()->registerObjectPool(enemyPool);
 
     Counter* stageCounter = new Counter(1);
 
 
 
-    GameObjectPool* platformPool = new GameObjectPool(ObjectPoolHolder::PLATFORM_POOL_TAG, new Platform("Platform", 5, stageCounter), 10, nullptr);
+    GameObjectPool* platformPool = new GameObjectPool(ObjectPoolHolder::PLATFORM_POOL_TAG, new Platform("Platform", 8, stageCounter), 10, nullptr);
     platformPool->initialize();
     ObjectPoolHolder::getInstance()->registerObjectPool(platformPool);
     for (int i = 0; i < 3; i++) {
+        enemyPool->requestPoolable();
         platformPool->requestPoolable();
     }
 
@@ -84,6 +81,6 @@ void Level2Scene2::onLoadObjects() {
 
 }
 
-void Level2Scene2::onUnloadResources() {
+void Level3Scene2::onUnloadResources() {
 
 }

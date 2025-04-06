@@ -150,11 +150,12 @@
     <ClCompile Include="BGObject.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Counter.cpp" />
+    <ClCompile Include="CreditsScene.cpp" />
+    <ClCompile Include="CreditsScreen.cpp" />
     <ClCompile Include="EmptyGameObject.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyAirplane.cpp" />
     <ClCompile Include="EnemyBehavior.cpp" />
-    <ClCompile Include="EnemySwarmHandler.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -173,6 +174,7 @@
     <ClCompile Include="Level3BGObject.cpp" />
     <ClCompile Include="Level3Scene1.cpp" />
     <ClCompile Include="Level3Scene2.cpp" />
+    <ClCompile Include="Level3Scene3.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainMenuScene.cpp" />
     <ClCompile Include="MainMenuScreen.cpp" />
@@ -210,11 +212,12 @@
     <ClInclude Include="Collider.h" />
     <ClInclude Include="CollisionListener.h" />
     <ClInclude Include="Counter.h" />
+    <ClInclude Include="CreditsScene.h" />
+    <ClInclude Include="CreditsScreen.h" />
     <ClInclude Include="EmptyGameObject.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyAirplane.h" />
     <ClInclude Include="EnemyBehavior.h" />
-    <ClInclude Include="EnemySwarmHandler.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="FontManager.h" />
     <ClInclude Include="Game.h" />
@@ -233,6 +236,7 @@
     <ClInclude Include="Level3BGObject.h" />
     <ClInclude Include="Level3Scene1.h" />
     <ClInclude Include="Level3Scene2.h" />
+    <ClInclude Include="Level3Scene3.h" />
     <ClInclude Include="MainMenuScene.h" />
     <ClInclude Include="MainMenuScreen.h" />
     <ClInclude Include="MusicManager.h" />

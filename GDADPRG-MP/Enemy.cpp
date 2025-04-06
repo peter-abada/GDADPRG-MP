@@ -3,6 +3,7 @@
 #include "Game.h"
 #include "Renderer.h"
 #include <iostream>
+#include "SFXManager.h"
 #include "EnemyBehavior.h"
 Enemy::Enemy(std::string name, int stage, Counter* enemyCounter)
     : APoolable(name), CollisionListener(), stage(stage), enemyCounter(enemyCounter) {
@@ -90,6 +91,32 @@ void Enemy::onActivate() {
         enemyCounter->increment();
     }
 
+	if (stage == 8) {
+		if (enemyCounter->getCounter() == 1) {
+			this->setPosition(Game::WINDOW_WIDTH / 2 + 210, 140);
+		}
+		if (enemyCounter->getCounter() == 2) {
+			this->setPosition(Game::WINDOW_WIDTH / 2 + 110, 290);
+		}
+		if (enemyCounter->getCounter() == 3) {
+			this->setPosition(Game::WINDOW_WIDTH / 2 + 10, 440);
+		}
+		enemyCounter->increment();
+	}
+
+    if (stage == 9) {
+        if (enemyCounter->getCounter() == 1) {
+            this->setPosition(Game::WINDOW_WIDTH / 2 + 350, Game::WINDOW_HEIGHT / 2 + 25);
+        }
+        if (enemyCounter->getCounter() == 2) {
+            this->setPosition(Game::WINDOW_WIDTH / 2 + 250, Game::WINDOW_HEIGHT / 2 + 25);
+        }
+        if (enemyCounter->getCounter() == 3) {
+            this->setPosition(Game::WINDOW_WIDTH / 2 + 150, Game::WINDOW_HEIGHT / 2 + 25);
+        }
+        enemyCounter->increment();
+    }
+
 }
 
 APoolable* Enemy::clone() {
@@ -102,10 +129,12 @@ void Enemy::onCollisionEnter(AGameObject* gameObject) {
         std::cout << "ENEMY TOUCHED PLAYER";
         AirplanePlayer* airplanePlayer = (AirplanePlayer*)GameObjectManager::getInstance()->findObjectByName("PlaneObject");
         if (airplanePlayer->getGrounded() == true) {
+
             airplanePlayer->setDead(true);
         } else {
             GameObjectPool* enemyPool = ObjectPoolHolder::getInstance()->getPool(ObjectPoolHolder::ENEMY_POOL_TAG);
             enemyPool->releasePoolable((APoolable*)this);
+            SFXManager::getInstance()->getSound("Stomp")->play();
 			airplanePlayer->getTransformable()->move(0, -150);
         }
 
@@ -114,11 +143,19 @@ void Enemy::onCollisionEnter(AGameObject* gameObject) {
         std::cout << "ENEMY TOUCHED GROUND";
         this->setGrounded(true);
     }
+    if (gameObject->getName().find("Platform") != std::string::npos) {
+        std::cout << "ENEMY TOUCHED Platform";
+        this->setGrounded(true);
+    }
 }
 
 void Enemy::onCollisionExit(AGameObject* gameObject) {
     if (gameObject->getName().find("Ground") != std::string::npos) {
         std::cout << "ENEMY LEFT GROUND" << std::endl;
+        this->setGrounded(false);
+    }
+    if (gameObject->getName().find("Platform") != std::string::npos) {
+        std::cout << "ENEMY LEFT Platform" << std::endl;
         this->setGrounded(false);
     }
 }

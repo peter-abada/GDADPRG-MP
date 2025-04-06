@@ -1,6 +1,6 @@
 #include "PlayerMovement.h"
 #include <iostream>
-
+#include "SFXManager.h"
 PlayerMovement::PlayerMovement(std::string name) 
     : AComponent(name, AComponent::ComponentType::Script) {
 }
@@ -29,7 +29,7 @@ void PlayerMovement::perform() {
       //}
 
     if (inputController->isUp() && airplanePlayer->getGrounded() && this->ticks > this->JUMP_INTERVAL) {
-
+        SFXManager::getInstance()->getSound("Jump")->play();
         this->ticks = 0.f;
         offset.y -= this->SPEED_MULTIPLIER*35;
         airplanePlayer->setGrounded(false);

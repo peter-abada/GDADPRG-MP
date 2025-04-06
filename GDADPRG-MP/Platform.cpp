@@ -89,6 +89,19 @@ void Platform::onActivate() {
         stageCounter->increment();
     }
 
+    else if (stage == 8) {
+        if (stageCounter->getCounter() == 1) {
+            this->setPosition(Game::WINDOW_WIDTH / 2 + 200, 150);
+        }
+		else if (stageCounter->getCounter() == 2) {
+			this->setPosition(Game::WINDOW_WIDTH / 2 + 100, 300);
+		}
+		else if (stageCounter->getCounter() == 3) {
+			this->setPosition(Game::WINDOW_WIDTH / 2, 450);
+		}
+        stageCounter->increment();
+    }
+
     PhysicsManager::getInstance()->trackObject(this->collider);
 }
 

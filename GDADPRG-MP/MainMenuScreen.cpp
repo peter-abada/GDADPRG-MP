@@ -88,8 +88,13 @@ void MainMenuScreen::initialize() {
     confirmText->setSize(60);
     confirmText->setText("Do you want to exit?");
     confirmText->setEnabled(false); 
-
+    // Debug output for button bounds
+    std::cout << "Button 1 bounds: " << button1->getGlobalBounds().left << ", " << button1->getGlobalBounds().top << ", " << button1->getGlobalBounds().width << ", " << button1->getGlobalBounds().height << std::endl;
+    std::cout << "Button 2 bounds: " << button2->getGlobalBounds().left << ", " << button2->getGlobalBounds().top << ", " << button2->getGlobalBounds().width << ", " << button2->getGlobalBounds().height << std::endl;
+    std::cout << "Button Yes bounds: " << buttonYes->getGlobalBounds().left << ", " << buttonYes->getGlobalBounds().top << ", " << buttonYes->getGlobalBounds().width << ", " << buttonYes->getGlobalBounds().height << std::endl;
+    std::cout << "Button No bounds: " << buttonNo->getGlobalBounds().left << ", " << buttonNo->getGlobalBounds().top << ", " << buttonNo->getGlobalBounds().width << ", " << buttonNo->getGlobalBounds().height << std::endl;
     ApplicationManager::getInstance()->pauseApplication();
+
 }
 
 void MainMenuScreen::onButtonClick(UIButton* button) {

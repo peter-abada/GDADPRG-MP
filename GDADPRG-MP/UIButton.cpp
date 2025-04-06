@@ -19,6 +19,7 @@ void UIButton::initialize() {
 	this->attachComponent(renderer);
 }
 
+
 void UIButton::setButtonListener(ButtonListener* listener) {
 	this->listener = listener;
 	UIButtonInputController* inputController = new UIButtonInputController("ButtonInputController", this->listener);

@@ -28,7 +28,7 @@ void MusicManager::loadAll() {
 void MusicManager::loadMusic(const std::string& key, const std::string& path) {
     sf::Music* music = new sf::Music();
     if (music->openFromFile(path)) {
-        music->setVolume(50); 
+        music->setVolume(70); 
         std::cout << "Loaded: " << path << std::endl;
         musicMap[key] = music;
     }

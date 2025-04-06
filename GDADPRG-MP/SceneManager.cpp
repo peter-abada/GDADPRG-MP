@@ -11,7 +11,7 @@ std::string SceneManager::LEVEL2_SCENE3_NAME = "Level2Scene3";
 std::string SceneManager::LEVEL3_SCENE1_NAME = "Level3Scene1";
 std::string SceneManager::LEVEL3_SCENE2_NAME = "Level3Scene2";
 std::string SceneManager::LEVEL3_SCENE3_NAME = "Level3Scene3";
-std::string SceneManager::CREDITS_SCENE_NAME = "Level3Scene3";
+std::string SceneManager::CREDITS_SCENE_NAME = "CreditsScene";
 
 SceneManager* SceneManager::sharedInstance = nullptr;
 

@@ -43,6 +43,7 @@ void AirplanePlayer::processInput(sf::Event event) {
 void AirplanePlayer::update(sf::Time deltaTime) {
 
 	if (this->dead || this->getTransformable()->getPosition().y >= 600) {
+		SFXManager::getInstance()->getSound("DeathSFX")->play();
 		SceneManager::getInstance()->loadScene(SceneManager::MAIN_MENU_SCENE_NAME);
 	}
 	AGameObject::update(deltaTime);

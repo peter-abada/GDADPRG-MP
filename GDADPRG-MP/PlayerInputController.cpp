@@ -21,7 +21,7 @@ void PlayerInputController::perform() {
 	switch (event.key.code) {
 	case sf::Keyboard::Space:
 		this->moveUp = keyFlag;
-		SFXManager::getInstance()->getSound("Jump")->play();
+		
 		break;
 	case sf::Keyboard::A:
 		this->moveLeft = keyFlag;

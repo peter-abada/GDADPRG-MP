@@ -53,6 +53,10 @@ void Goal::onCollisionEnter(AGameObject* gameObject) {
 			std::cout << "going to next level!!";
 			SceneManager::getInstance()->loadScene(SceneManager::LEVEL3_SCENE1_NAME);
 		}
+		if (stage == 3) {
+			std::cout << "going to credits!!";
+			SceneManager::getInstance()->loadScene(SceneManager::CREDITS_SCENE_NAME);
+		}
 
 	}
 
