@@ -4,6 +4,14 @@
 #include <iostream>
 #include "EmptyGameObject.h"
 #include "MusicManager.h"
+
+/*
+
+similar to the MainMenuScreen/Scene made during the lectures
+
+*/
+
+
 CreditsScene::CreditsScene() : AScene("CreditsScene") {
 }
 

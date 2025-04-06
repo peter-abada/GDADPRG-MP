@@ -15,7 +15,7 @@ void PlayerMovement::perform() {
     }
     
     sf::Vector2f offset(0.f, 0.f);   
-	if (!airplanePlayer->getGrounded()) {
+	if (!airplanePlayer->getGrounded()) { // if the player is not grounded make them fall
 		offset.y += this->SPEED_MULTIPLIER*2;
 	}
 
@@ -27,14 +27,18 @@ void PlayerMovement::perform() {
       //    this->ticks = 0.f;
       //    projectilePool->requestPoolable();
       //}
-
-    if (inputController->isUp() && airplanePlayer->getGrounded() && this->ticks > this->JUMP_INTERVAL) {
+      // 
+      // 
+	  // makes the player jump, theres a delay between jumps from the JUMP_INTERVAL and it sets the player to not be grounded
+	  if (inputController->isUp() && airplanePlayer->getGrounded() && this->ticks > this->JUMP_INTERVAL) { 
         SFXManager::getInstance()->getSound("Jump")->play();
         this->ticks = 0.f;
         offset.y -= this->SPEED_MULTIPLIER*35;
         airplanePlayer->setGrounded(false);
 
     }
+
+      //moves the player left and rgth
     if (inputController->isRight()) {
         offset.x += this->SPEED_MULTIPLIER*1.5f;
     }

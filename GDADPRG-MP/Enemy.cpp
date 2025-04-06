@@ -5,6 +5,14 @@
 #include <iostream>
 #include "SFXManager.h"
 #include "EnemyBehavior.h"
+
+/*
+
+The enemy class is a poolable object such that it handles spawning multiple enmemies easier and 
+better for memory management.
+
+*/
+
 Enemy::Enemy(std::string name, int stage, Counter* enemyCounter)
     : APoolable(name), CollisionListener(), stage(stage), enemyCounter(enemyCounter) {
 }
@@ -40,6 +48,18 @@ void Enemy::initialize() {
 void Enemy::onRelease() {
     PhysicsManager::getInstance()->untrackObject(this->collider);
 }
+
+
+
+/*
+
+the stages and enemyCounters here represents where to spawn the enemy.
+the stage reprents the stage (there are 3 levels with 3 stages within them, 
+so if I wanted to spawn enemies on level 2 stage 1) I set stage to 4
+enemyCounters uses the Counter class to keep track of the currently spawned enemies and make sure it doesn't
+spawn the same enemy twice.
+
+*/
 
 void Enemy::onActivate() {
     EnemyBehavior* enemyBehavior = (EnemyBehavior*)this->findComponentByName("EnemyBehavior");
@@ -125,13 +145,17 @@ APoolable* Enemy::clone() {
 }
 
 void Enemy::onCollisionEnter(AGameObject* gameObject) {
+
+    // Detects if the player touches the enemy
     if (gameObject->getName().find("PlaneObject") != std::string::npos) {
         std::cout << "ENEMY TOUCHED PLAYER";
         AirplanePlayer* airplanePlayer = (AirplanePlayer*)GameObjectManager::getInstance()->findObjectByName("PlaneObject");
         if (airplanePlayer->getGrounded() == true) {
-
+            // if the player is on teh ground, the player dies
             airplanePlayer->setDead(true);
         } else {
+
+            // if the player is above the enemy and lands on it, the enemy gets released from the pool
             GameObjectPool* enemyPool = ObjectPoolHolder::getInstance()->getPool(ObjectPoolHolder::ENEMY_POOL_TAG);
             enemyPool->releasePoolable((APoolable*)this);
             SFXManager::getInstance()->getSound("Stomp")->play();
@@ -139,6 +163,8 @@ void Enemy::onCollisionEnter(AGameObject* gameObject) {
         }
 
     }
+
+	// When it comes into contact with the ground or platform, it becomes grounded
     if (gameObject->getName().find("Ground") != std::string::npos) {
         std::cout << "ENEMY TOUCHED GROUND";
         this->setGrounded(true);
@@ -150,6 +176,7 @@ void Enemy::onCollisionEnter(AGameObject* gameObject) {
 }
 
 void Enemy::onCollisionExit(AGameObject* gameObject) {
+	// If the enemy leaves the ground or platform, it becomes ungrounded
     if (gameObject->getName().find("Ground") != std::string::npos) {
         std::cout << "ENEMY LEFT GROUND" << std::endl;
         this->setGrounded(false);

@@ -15,7 +15,7 @@ void EnemyBehavior::perform() {
     transformable->move(-this->deltaTime.asSeconds() * SPEED_MULTIPLIER * 1.5f, 0);
 
     Enemy* enemy = (Enemy*)this->getOwner();
-    if (enemy && !enemy->getGrounded()) {
+    if (enemy && !enemy->getGrounded()) { // If the enemy is not collding with the ground or platform it will start falling down
         transformable->move(0, this->deltaTime.asSeconds() * SPEED_MULTIPLIER*3);
     }
 }

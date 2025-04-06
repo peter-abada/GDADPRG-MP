@@ -8,6 +8,13 @@
 #include <iostream>
 #include <string>
 
+
+/*
+
+Basically a copy and paste of hte MainMenuScreen class with differnet wordings
+
+*/
+
 CreditsScreen::CreditsScreen(std::string name)
     : AGameObject(name), ButtonListener(), button1(nullptr), button2(nullptr), buttonYes(nullptr), buttonNo(nullptr), confirmText(nullptr) {
 }

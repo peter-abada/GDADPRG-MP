@@ -27,6 +27,6 @@ private:
 
     Collider* collider = nullptr;
     Counter* enemyCounter;
-    bool grounded = false;
+    bool grounded = false; // this variable is used for checking if the enemy is touching the ground or not
 };
 

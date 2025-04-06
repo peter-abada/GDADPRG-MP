@@ -154,7 +154,6 @@
     <ClCompile Include="CreditsScreen.cpp" />
     <ClCompile Include="EmptyGameObject.cpp" />
     <ClCompile Include="Enemy.cpp" />
-    <ClCompile Include="EnemyAirplane.cpp" />
     <ClCompile Include="EnemyBehavior.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="FontManager.cpp" />
@@ -179,7 +178,6 @@
     <ClCompile Include="MainMenuScene.cpp" />
     <ClCompile Include="MainMenuScreen.cpp" />
     <ClCompile Include="MusicManager.cpp" />
-    <ClCompile Include="MusicObject.cpp" />
     <ClCompile Include="NextScreen.cpp" />
     <ClCompile Include="ObjectPoolHolder.cpp" />
     <ClCompile Include="PauseMenuScreen.cpp" />
@@ -188,8 +186,6 @@
     <ClCompile Include="Platform.cpp" />
     <ClCompile Include="PlayerInputController.cpp" />
     <ClCompile Include="PlayerMovement.cpp" />
-    <ClCompile Include="ProjectileMovement.cpp" />
-    <ClCompile Include="ProjectileObject.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SFXManager.cpp" />
@@ -216,7 +212,6 @@
     <ClInclude Include="CreditsScreen.h" />
     <ClInclude Include="EmptyGameObject.h" />
     <ClInclude Include="Enemy.h" />
-    <ClInclude Include="EnemyAirplane.h" />
     <ClInclude Include="EnemyBehavior.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="FontManager.h" />
@@ -240,7 +235,6 @@
     <ClInclude Include="MainMenuScene.h" />
     <ClInclude Include="MainMenuScreen.h" />
     <ClInclude Include="MusicManager.h" />
-    <ClInclude Include="MusicObject.h" />
     <ClInclude Include="NextScreen.h" />
     <ClInclude Include="ObjectPoolHolder.h" />
     <ClInclude Include="PauseMenuScreen.h" />
@@ -249,8 +243,6 @@
     <ClInclude Include="Platform.h" />
     <ClInclude Include="PlayerInputController.h" />
     <ClInclude Include="PlayerMovement.h" />
-    <ClInclude Include="ProjectileMovement.h" />
-    <ClInclude Include="ProjectileObject.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SFXManager.h" />

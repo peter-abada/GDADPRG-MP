@@ -23,12 +23,13 @@ Game::Game() : mWindow(sf::VideoMode(Game::WINDOW_WIDTH, Game::WINDOW_HEIGHT), "
     TextureManager::getInstance()->loadAll();
     FontManager::getInstance()->loadAll();
 
+
+    // Loads in all the scenes 
+
     SceneManager::getInstance()->registerScene(new MainMenuScene());
     SceneManager::getInstance()->registerScene(new GameScene()); // level 1 screen 1
     SceneManager::getInstance()->registerScene(new Level1Scene2()); // level 1 screen 2
     SceneManager::getInstance()->registerScene(new Level1Scene3()); // level 1 screen 3
-
-
 
     SceneManager::getInstance()->registerScene(new Level2Scene1()); // level 1 screen 3
 	SceneManager::getInstance()->registerScene(new Level2Scene2()); // level 1 screen 3

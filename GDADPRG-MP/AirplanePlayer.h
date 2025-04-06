@@ -21,7 +21,7 @@ public:
 	void setDead(bool dead);
 
 private:
-    bool grounded = false;
+    bool grounded = false; // if the player is touching the ground or a playform
     Collider* collider = nullptr;
-    bool dead = false;
+    bool dead = false; // if the player is dead or alive
 };

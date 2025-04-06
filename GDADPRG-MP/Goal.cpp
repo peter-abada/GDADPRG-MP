@@ -3,6 +3,15 @@
 #include "TextureManager.h"
 #include "Game.h"
 
+
+/*
+
+Goal class functions as the transition point between levels, it takes in a stage paramater
+to check what level the player is currently on so that it can swap Scenes properly
+
+*/
+
+
 Goal::Goal(std::string name, int stage, int xPos, int yPos) : AGameObject(name), stage(stage) {
 	this->xPos = xPos;
 	this->yPos = yPos;
@@ -39,6 +48,8 @@ void Goal::update(sf::Time deltaTime) {
 	AGameObject::update(deltaTime);
 }
 
+
+// When the player collides with the goal/flag it goes to the next level or the credits scene
 
 
 void Goal::onCollisionEnter(AGameObject* gameObject) {

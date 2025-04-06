@@ -1,6 +1,8 @@
 #include "Level3BGObject.h"
 #include <iostream>
 
+//BGobject for level 3
+
 Level3BGObject::Level3BGObject(std::string name) : AGameObject(name) {
 
 }

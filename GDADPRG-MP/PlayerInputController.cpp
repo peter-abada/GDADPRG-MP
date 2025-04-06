@@ -18,10 +18,11 @@ void PlayerInputController::perform() {
 		keyFlag = false;
 	}
 
+
+	// space is for jumping a and d is for left and right
 	switch (event.key.code) {
 	case sf::Keyboard::Space:
 		this->moveUp = keyFlag;
-		
 		break;
 	case sf::Keyboard::A:
 		this->moveLeft = keyFlag;
@@ -33,11 +34,6 @@ void PlayerInputController::perform() {
 
 
 }
-
-bool PlayerInputController::hasFired() {
-	return this->fire;
-}
-
 
 bool PlayerInputController::isUp() {
 	return this->moveUp;

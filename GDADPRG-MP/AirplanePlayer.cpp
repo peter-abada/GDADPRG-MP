@@ -43,6 +43,12 @@ void AirplanePlayer::processInput(sf::Event event) {
 void AirplanePlayer::update(sf::Time deltaTime) {
 
 	if (this->dead || this->getTransformable()->getPosition().y >= 600) {
+		/*
+		
+		Death sound effect plays here instead of the collision sections, 
+		since a player can die in multiple ways so this simplifies things
+		
+		*/
 		SFXManager::getInstance()->getSound("DeathSFX")->play();
 		SceneManager::getInstance()->loadScene(SceneManager::MAIN_MENU_SCENE_NAME);
 	}
@@ -61,14 +67,16 @@ void AirplanePlayer::setGrounded(bool grounded) {
 
 
 void AirplanePlayer::onCollisionEnter(AGameObject* gameObject) {
-	std::cout << "a";
+
+
+	// checks if the player is touching the ground object
 	if (gameObject->getName().find("Ground") != std::string::npos) {
 
 		std::cout << "player found";
 		AirplanePlayer* airplanePlayer = (AirplanePlayer*)GameObjectManager::getInstance()->findObjectByName("PlaneObject");
 		airplanePlayer->setGrounded(true);
 	}
-
+	// same thing with the platform object
 	if (gameObject->getName().find("Platform") != std::string::npos) {
 
 		std::cout << "platform found";

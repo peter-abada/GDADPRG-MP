@@ -3,6 +3,14 @@
 #include "TextureManager.h"
 #include "Game.h"
 
+
+/*
+
+this clsas is used to go to the next screen/scene of a level 
+
+*/
+
+
 NextScreen::NextScreen(std::string name, int screen) : AGameObject(name), screen(screen) {
 
 }
@@ -39,6 +47,9 @@ void NextScreen::update(sf::Time deltaTime) {
 }
 
 
+
+
+// Takes in the screen parameter then uses it to properly mvoe to the next screen
 
 void NextScreen::onCollisionEnter(AGameObject* gameObject) {
 	std::cout << "aaa: " << screen;

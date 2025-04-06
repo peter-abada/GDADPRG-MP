@@ -3,7 +3,6 @@
 #include "Level3BGObject.h"
 #include "AirplanePlayer.h"
 #include "EmptyGameObject.h"
-#include "EnemySwarmHandler.h"
 #include "Ground.h"
 #include "Platform.h"
 #include "Counter.h"
@@ -11,6 +10,17 @@
 #include <iostream>
 #include "MusicManager.h"
 #include "Game.h"
+
+/*
+
+These classes function as the levels and stages, the player starts on the left and they
+have to make it all the way to the right to move to the next stage or level
+
+
+Refer to GameScene.h for more details on how the levels are structured
+
+*/
+
 Level3Scene1::Level3Scene1() : AScene("Level3Scene1") {
 }
 
@@ -21,11 +31,8 @@ void Level3Scene1::onLoadResources() {
 void Level3Scene1::onLoadObjects() {
 
     std::cout << "Loading game objects..." << std::endl;
-    //sf::Music* backgroundMusic = MusicManager::getInstance()->getMusic("BackgroundMusic");
-    //if (backgroundMusic) {
-    //    backgroundMusic->setLoop(true); // Enable looping
-    //    backgroundMusic->play();
-    //}
+
+
     MusicManager::getInstance()->playSong("Level3Music");
     EmptyGameObject* physicsManager = new EmptyGameObject("PhysicsManager");
     PhysicsManager::getInstance()->initialize("PhysicsManager", physicsManager);
@@ -40,24 +47,13 @@ void Level3Scene1::onLoadObjects() {
     NextScreen* nextScreen = new NextScreen("NextScreen", 7);
     this->registerObject(nextScreen);
 
-    //Platform* platform = new Platform("Platform");
-    //this->registerObject(platform);
-
     AirplanePlayer* planeObject = new AirplanePlayer("PlaneObject");
     this->registerObject(planeObject);
 
-    //srand(time(nullptr));
-    //EmptyGameObject* enemiesManager = new EmptyGameObject("EnemiesManager");
-    //EnemySwarmHandler* swarmHandler = new EnemySwarmHandler(10, "SwarmHandler", enemiesManager);
-    //enemiesManager->attachComponent(swarmHandler);
-    //this->registerObject(enemiesManager);
-
     Counter* stageCounter = new Counter(1);
 
-
-
     GameObjectPool* platformPool = new GameObjectPool(ObjectPoolHolder::PLATFORM_POOL_TAG, new Platform("Platform", 7, stageCounter), 10, nullptr);
-    // probably dont need to use pools ubt instead just the object itself so we can manually put x and y so we dont need stage coutner
+
 
     platformPool->initialize();
     ObjectPoolHolder::getInstance()->registerObjectPool(platformPool);

@@ -3,7 +3,6 @@
 #include "Level3BGObject.h"
 #include "AirplanePlayer.h"
 #include "EmptyGameObject.h"
-#include "EnemySwarmHandler.h"
 #include "Ground.h"
 #include "Platform.h"
 #include "Counter.h"
@@ -11,6 +10,15 @@
 #include "Enemy.h"
 #include "Game.h"
 #include <iostream>
+/*
+
+These classes function as the levels and stages, the player starts on the left and they
+have to make it all the way to the right to move to the next stage or level
+
+
+Refer to GameScene.h for more details on how the levels are structured
+
+*/
 
 Level3Scene2::Level3Scene2() : AScene("Level3Scene2") {
 }
@@ -36,21 +44,8 @@ void Level3Scene2::onLoadObjects() {
     NextScreen* nextScreen = new NextScreen("NextScreen", 8);
     this->registerObject(nextScreen);
 
-    //Platform* platform = new Platform("Platform");
-    //this->registerObject(platform);
-
     AirplanePlayer* planeObject = new AirplanePlayer("PlaneObject");
     this->registerObject(planeObject);
-
-    //srand(time(nullptr));
-    //EmptyGameObject* enemiesManager = new EmptyGameObject("EnemiesManager");
-    //EnemySwarmHandler* swarmHandler = new EnemySwarmHandler(10, "SwarmHandler", enemiesManager);
-    //enemiesManager->attachComponent(swarmHandler);
-    //this->registerObject(enemiesManager);
-
-    GameObjectPool* projectilePool = new GameObjectPool(ObjectPoolHolder::PROJECTILE_POOL_TAG, new ProjectileObject("projectile"), 10, nullptr);
-    projectilePool->initialize();
-    ObjectPoolHolder::getInstance()->registerObjectPool(projectilePool);
 
     Counter* enemyCounter = new Counter(1);
 

@@ -7,6 +7,13 @@
 #include <iostream>
 #include <string>
 
+/*
+
+Same as the assignment, it returns the player to the main menu if they choose the option to or resumes the game
+
+*/
+
+
 PauseMenuScreen::PauseMenuScreen(std::string name) : AGameObject(name), ButtonListener() {
 }
 

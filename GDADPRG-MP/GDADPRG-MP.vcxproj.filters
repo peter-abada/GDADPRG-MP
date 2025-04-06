@@ -66,9 +66,6 @@
     <ClCompile Include="EmptyGameObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EnemyAirplane.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="EnemyBehavior.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -97,12 +94,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PlayerMovement.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ProjectileMovement.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ProjectileObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Renderer.cpp">
@@ -151,9 +142,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Level1Scene3.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MusicObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MusicManager.cpp">
@@ -242,9 +230,6 @@
     <ClInclude Include="EmptyGameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyAirplane.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="EnemyBehavior.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -276,12 +261,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PlayerMovement.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ProjectileMovement.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ProjectileObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Renderer.h">
@@ -330,9 +309,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Level1Scene3.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MusicObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MusicManager.h">

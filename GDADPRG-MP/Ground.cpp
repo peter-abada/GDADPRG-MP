@@ -5,6 +5,17 @@
 #include "AirplanePlayer.h"
 #include <iostream>
 
+
+
+/*
+
+
+The ground class is just a regular gameobject and it functions as the main ground for the player to walk on,
+it has two constructers, one that sets the position to cover the whole ground
+the other makes it so there can be a hole in the floor or an elevated position.
+
+*/
+
 Ground::Ground(std::string name) : AGameObject(name), CollisionListener() {
     this->xPos = Game::WINDOW_WIDTH / 2;
     this->yPos = 500;
@@ -12,7 +23,7 @@ Ground::Ground(std::string name) : AGameObject(name), CollisionListener() {
 }
 
 Ground::Ground(std::string name, int xPos, int yPos) : AGameObject(name), CollisionListener(), xPos(xPos), yPos(yPos) {   
-    std::cout << "  EROPREGUIERHGERUIOEROUIGHERIOUGHERIGUHEROIUGERIOHUGEROIGHU";
+
 	this->xPos = xPos;
 	this->yPos = yPos;
 
@@ -56,7 +67,7 @@ void Ground::update(sf::Time deltaTime) {
 
 
 void Ground::onCollisionEnter(AGameObject* gameObject) {
-    std::cout << "a";
+	// if the player comes into contact with the ground, set the grounded variable to true
     if (gameObject->getName().find("PlaneObject") != std::string::npos) {
 
         std::cout << "player found";
@@ -66,6 +77,7 @@ void Ground::onCollisionEnter(AGameObject* gameObject) {
 }
 
 void Ground::onCollisionExit(AGameObject* gameObject) {
+	// When the player leaves the ground, set the grounded variable to false
     if (gameObject->getName().find("PlaneObject") != std::string::npos) {
         AirplanePlayer* airplanePlayer = (AirplanePlayer*)GameObjectManager::getInstance()->findObjectByName("PlaneObject");
         airplanePlayer->setGrounded(false);

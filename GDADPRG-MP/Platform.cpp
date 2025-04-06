@@ -5,6 +5,15 @@
 
 #include <iostream>
 
+
+/*
+Just like the ground object this serves as a place for the player and enemies to stand,
+however it makes use of poolables to spawn multiple and the stage and counter parameters similar to enemies
+
+
+*/
+
+
 Platform::Platform(std::string name, int stage, Counter* stageCounter)
     : APoolable(name), CollisionListener(), stage(stage), stageCounter(stageCounter) {
 }
@@ -37,6 +46,11 @@ void Platform::onRelease() {
     PhysicsManager::getInstance()->untrackObject(this->collider);
 }
 
+
+
+// Similar to the enemy class the stage and counters are used for spawning the platforms in teh right positions for each stage
+// the reason this is done for both enemies and platforms is because when setting up the poolable you can't have them all different there
+// meaning it has to be done here
 void Platform::onActivate() {
     if (stage == 1) {
 
@@ -111,6 +125,8 @@ APoolable* Platform::clone() {
 }
 
 void Platform::onCollisionEnter(AGameObject* gameObject) {
+
+    // if a player is in contact with the platform set it to grounded
     if (gameObject->getName().find("PlaneObject") != std::string::npos) {
         std::cout << "player found";
         AirplanePlayer* airplanePlayer = (AirplanePlayer*)GameObjectManager::getInstance()->findObjectByName("PlaneObject");
@@ -119,6 +135,7 @@ void Platform::onCollisionEnter(AGameObject* gameObject) {
 }
 
 void Platform::onCollisionExit(AGameObject* gameObject) {
+	// if a player is no longer in contact with the platform set it to not grounded
     if (gameObject->getName().find("PlaneObject") != std::string::npos) {
         AirplanePlayer* airplanePlayer = (AirplanePlayer*)GameObjectManager::getInstance()->findObjectByName("PlaneObject");
         airplanePlayer->setGrounded(false);

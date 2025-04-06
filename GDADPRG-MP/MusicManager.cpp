@@ -1,6 +1,15 @@
 #include "MusicManager.h"
 #include <iostream>
 
+
+
+
+/*
+
+A copy of the SFXManager class from one of the first assignments, it uses sf::Music instead
+
+*/
+
 MusicManager* MusicManager::sharedInstance = nullptr;
 
 MusicManager* MusicManager::getInstance() {
@@ -37,7 +46,7 @@ void MusicManager::loadMusic(const std::string& key, const std::string& path) {
         delete music;
     }
 }
-
+// Gets the desired song
 sf::Music* MusicManager::getMusic(const std::string& key) {
     if (musicMap.find(key) != musicMap.end() && musicMap[key] != nullptr) {
         std::cout << "Playing music: " << key << std::endl;
@@ -48,6 +57,8 @@ sf::Music* MusicManager::getMusic(const std::string& key) {
         return nullptr;
     }
 }
+
+// Plays and stops the songs so that only one song can play at once
 void MusicManager::playSong(const std::string& key) {
     // Stop the currently playing music if any
     if (currentMusic != nullptr && currentMusic->getStatus() == sf::Music::Playing) {

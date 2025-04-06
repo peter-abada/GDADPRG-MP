@@ -10,6 +10,9 @@ MainMenuScene::MainMenuScene() : AScene("MainMenuScene") {
 void MainMenuScene::onLoadResources() {
 }
 
+
+// Loads the main menu screen and the music
+
 void MainMenuScene::onLoadObjects() {
 	MainMenuScreen* mainMenu = new MainMenuScreen("MainMenuScreen");
 	this->registerObject(mainMenu);

@@ -10,11 +10,9 @@
 #include "TextureManager.h"
 #include "BGObject.h"
 #include "AirplanePlayer.h"
-#include "EnemyAirplane.h"
 #include <vector>
 #include <SFML/Graphics.hpp>
 #include "EmptyGameObject.h"
-#include "EnemySwarmHandler.h"
 #include "MainMenuScreen.h"
 #include "PauseScreen.h"
 #include "PauseMenuScreen.h"
